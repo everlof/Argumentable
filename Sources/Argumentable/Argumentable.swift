@@ -20,7 +20,7 @@ public enum ParameterType {
     case multiple([String])
 }
 
-protocol Argable {
+public protocol Argable {
 
     static var help: String { get }
 
@@ -38,7 +38,7 @@ protocol Argable {
 
 extension Array where Element == String {
 
-    mutating func value<T: Argable>() -> T? {
+    public mutating func value<T: Argable>() -> T? {
         let args = [T.longArg, T.shortArg].flatMap { $0 }
 
         guard args.count > 0 else {
